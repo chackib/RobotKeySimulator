@@ -1,13 +1,22 @@
-package com.cronos.ahmed;
+import java.awt.*;
+import java.awt.event.KeyEvent;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+public class Test {
+public static void main(String[] args) {
+try {
+Robot r = new Robot();
+int i = 0;
 
-@SpringBootApplication
-public class CronosChallengeApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(CronosChallengeApplication.class, args);
-	}
+        while (i < 3000) {
+            r.keyPress(KeyEvent.VK_R);
+            r.keyRelease(KeyEvent.VK_R);
+            i++;
+            System.out.println(i);
+            Thread.sleep(10000);
+        }
+    } catch (AWTException | InterruptedException e) {
+        throw new RuntimeException(e);
+    }
+}
 
 }
